@@ -1,0 +1,9 @@
+metric=accuracy
+time_budget=60
+best_estimator=xgb_limitdepth
+best_config={'n_estimators': 152, 'max_depth': 5, 'min_child_weight': np.float64(1.5100656292114165), 'learning_rate': np.float64(0.512109835438374), 'subsample': np.float64(0.6309527280825342), 'colsample_bylevel': 1.0, 'colsample_bytree': np.float64(0.9383194606124826), 'reg_alpha': np.float64(0.04738374044681617), 'reg_lambda': np.float64(0.8074989651139306)}
+best_cv_score=0.9780
+automl_test_accuracy=0.9561
+baseline_test_accuracy=0.9561
+difference=+0.0000
+search_time_seconds=60.1

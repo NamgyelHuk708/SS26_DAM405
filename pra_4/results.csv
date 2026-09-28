@@ -1,0 +1,6 @@
+metric,budget_s,best_estimator,cv_score,automl_test_acc,baseline_test_acc,diff,search_time_s
+accuracy,60,xgboost,0.9802,0.9561,0.9561,+0.0000,60.0
+accuracy,10,lgbm,0.9714,0.9737,0.9561,+0.0175,11.3
+accuracy,120,xgb_limitdepth,0.9802,0.9649,0.9561,+0.0088,120.2
+roc_auc,60,lgbm,0.9946,0.9737,0.9561,+0.0175,60.4
+accuracy,60,xgb_limitdepth,0.9780,0.9561,0.9561,+0.0000,60.1

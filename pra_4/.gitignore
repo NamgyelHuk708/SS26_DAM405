@@ -1,0 +1,12 @@
+# virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# FLAML search log (regenerated on every run)
+flaml.log
+
+# models from the extra experiments (only automl_model.joblib is the deliverable)
+model_*.joblib

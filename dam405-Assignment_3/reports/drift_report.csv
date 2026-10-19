@@ -1,0 +1,15 @@
+feature,type,test,statistic,p_value,threshold,drifted
+workclass,categorical,psi,2.752,,0.2,True
+marital-status,categorical,psi,1.132,,0.2,True
+age,numeric,ks,0.4154,0.0,0.05,True
+capital-gain,numeric,ks,0.403,0.0,0.05,True
+hours-per-week,numeric,ks,0.7107,0.0,0.05,True
+education,categorical,psi,0.0547,,0.2,False
+occupation,categorical,psi,0.0772,,0.2,False
+relationship,categorical,psi,0.0398,,0.2,False
+race,categorical,psi,0.0081,,0.2,False
+sex,categorical,psi,0.0094,,0.2,False
+native-country,categorical,psi,0.0155,,0.2,False
+fnlwgt,numeric,ks,0.0349,0.849608,0.05,False
+education-num,numeric,ks,0.025,0.990322,0.05,False
+capital-loss,numeric,ks,0.0211,0.999088,0.05,False

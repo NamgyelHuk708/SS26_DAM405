@@ -1,0 +1,83 @@
+# Central configuration for DAM405 PA3.
+# All paths are relative to the project root (resolved in src/config.py).
+
+project:
+  name: "dam405-pa3"
+  random_seed: 42
+
+data:
+  openml_name: "adult"
+  openml_version: 2
+  raw_path: "data/raw/adult.csv"
+  processed_dir: "data/processed"
+  reference_path: "data/reference/reference.parquet"
+  target: "income"
+  positive_label: ">50K"
+  test_size: 0.2
+  val_size: 0.1
+  numeric_features:
+    - age
+    - fnlwgt
+    - education-num
+    - capital-gain
+    - capital-loss
+    - hours-per-week
+  categorical_features:
+    - workclass
+    - education
+    - marital-status
+    - occupation
+    - relationship
+    - race
+    - sex
+    - native-country
+
+mlflow:
+  tracking_uri: "sqlite:///mlflow.db"
+  artifact_location: "./mlartifacts"
+  experiment_name: "dam405-pa3-adult-income"
+  registered_model_name: "adult-income-classifier"
+  champion_alias: "champion"
+  selection_metric: "test_roc_auc"
+
+baseline:
+  C: 1.0
+  max_iter: 1000
+
+automl:
+  time_budget: 180
+  metric: "roc_auc"
+  task: "classification"
+  estimator_list: ["lgbm", "xgboost", "rf", "extra_tree", "lrl1"]
+  log_file: "logs/flaml.log"
+
+explain:
+  sample_size: 1000
+  top_k_features: 3
+  figures_dir: "reports/figures"
+
+serving:
+  host: "127.0.0.1"
+  port: 8010   # 8000 is used by another service on this machine
+
+simulation:
+  n_normal: 300
+  n_drifted: 300
+  n_malformed: 10
+
+drift:
+  window_size: 200
+  check_every: 50          # once the window is full, re-test every N requests
+  ks_p_value_threshold: 0.05
+  psi_threshold: 0.2
+  psi_min_category_share: 0.01   # categories rarer than 1% in training are pooled as OTHER
+  min_drifted_features: 2
+  report_path: "reports/drift_report.csv"
+
+logging:
+  level: "INFO"
+  dir: "logs"
+  service_log: "service.log"
+  training_log: "training.log"
+  max_bytes: 5242880
+  backup_count: 3
